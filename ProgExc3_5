@@ -1,0 +1,53 @@
+{
+   //Declare
+
+   string LastName = "";
+   string FirstName = "";
+   double payinc = 0;
+   double pay = 0;
+   double newpay = 0;
+   string filename;
+    
+      
+
+   ifstream OldData;
+   ofstream NewData;
+   
+  // cout << fixed << setprecision(2); 
+   NewData << fixed << setprecision(2); //setting it fixed lets the number be a whole & the setprecision only allows 2 spots for decimal
+ 
+      cout << "Enter your file name \n";
+      cin >> filename;
+   
+   OldData.open( filename); // opens the file using the file name already available
+   NewData.open("Ch3_Ex5Output.dat"); // opens a new file
+
+   
+
+  //employee 1                              You can copy & paste this employee 1 section & replace the missing information.
+   cout << "The new pay for employees: \n";
+   OldData >> FirstName >> LastName >> pay >> payinc;
+   newpay = pay * payinc / 100 + pay;
+    NewData << endl << LastName << " " << FirstName << " " << newpay;
+   cout << FirstName << " " << LastName << " now makes " << newpay << " ";
+    cout << "\n";
+
+   //employee 2 
+   OldData >> FirstName >> LastName >> pay >> payinc;
+   newpay = pay * payinc / 100 + pay;
+    NewData << endl << LastName << " " << FirstName << " " << newpay;
+   cout << FirstName << " " << LastName << " now makes " << newpay << " ";
+    cout << "\n";
+
+   //employee 3
+   OldData >> FirstName >> LastName >> pay >> payinc;
+   newpay = pay * payinc / 100 + pay;
+    NewData << endl << LastName << " " << FirstName << " " << newpay;
+   cout << FirstName << " " << LastName << " now makes " << newpay << " ";
+    cout << "\n";
+
+   OldData.close(); // close the file when you are done! 
+   NewData.close();
+ 
+   
+  return 0;
