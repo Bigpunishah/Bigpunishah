@@ -1,0 +1,47 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  double PurPrice; // each share price
+  double SellPrice; // each share price
+  double Sold; //number of shares
+  double TotalInv; // total invested
+  double TotalRec; // total received
+  double PurFee;   // sale fee
+  double GainLoss; // gain or loss amount
+  double SerChar; // Purchase fee
+  {
+    cout << "Enter the buying price of each share " << endl;
+      cin >> PurPrice; 
+    cout << "Enter the selling price of each share " << endl;
+      cin >> SellPrice; 
+    cout << "Enter the number of Shares sold " << endl;
+      cin >> Sold; 
+
+    SerChar  = Sold * PurPrice * .015;
+    PurFee = Sold * SellPrice * .015;   
+
+      cout << "Total invested: $"; 
+    TotalInv = Sold * PurPrice + SerChar;
+      cout << TotalInv << endl;
+
+      cout << "Total amount received from selling: $";
+    TotalRec = Sold * SellPrice - PurFee;
+      cout << TotalRec << endl;
+
+     
+     cout << "Service charge: $"; cout << SerChar + PurFee << endl;
+
+    
+    PurFee = Sold * PurPrice * SerChar;
+     
+
+      cout << "Total Profit: $"; GainLoss = TotalRec - TotalInv;
+      cout << GainLoss << endl; 
+
+} 
+
+
+    return 0;
+}
