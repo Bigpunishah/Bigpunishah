@@ -1,0 +1,52 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    double billingAmount;
+    double payamount;
+    double x; 
+    double P50r = .05;  // pay is at least 50%
+    double P20r = .1;  // pay is at least 20%
+    double P19r = .2;  // pay is less than 20%
+
+      cout << "Enter the billing amount: " << endl;
+
+    cin >> billingAmount;
+
+      cout << "Enter pay amount: " << endl;
+
+    cin >> payamount;
+    cout << fixed << setprecision(2);
+    
+    x = payamount / billingAmount;
+    if (payamount < billingAmount) 
+      cout <<  "The fee for not paying full amount will be: ";
+    if (payamount == billingAmount)
+      cout << "Thank you for your full payment \n";
+    if (payamount > billingAmount)
+      cout << "Error";
+    
+    if (payamount == billingAmount && 10 > (billingAmount * .01)) 
+      cout << "You will get: $" << billingAmount * .01 << " taken off your next bill" << endl;
+    if (payamount == billingAmount && 10 < (billingAmount * .01))
+      cout << "You will get: $10.00 taken off your next bill";
+      
+    
+    
+    
+    if (x < .99 && x >= .50)
+      cout << "$" << (billingAmount - payamount) * P50r << "\nWhich will be added to the remaining amount of: $" << billingAmount - payamount
+      <<  "\nYou now owe: " <<((billingAmount - payamount) * P50r) + (billingAmount - payamount); 
+    if (x < .50 && x > .20) 
+      cout << "$" << (billingAmount - payamount) * P20r << "\nWhich will be added to the remaining amount of: $" << billingAmount - payamount
+      <<  "\nYou now owe: " << (billingAmount - payamount) * P20r + billingAmount - payamount;
+    if (x < .20 && x > 0) 
+      cout << "$" << (billingAmount - payamount) * P19r << "\nWhich will be added to the remaining amount of: $" << billingAmount - payamount
+      <<  "\nYou now owe: $" << (billingAmount - payamount) * P19r + billingAmount - payamount;
+
+  
+    return 0;
+}
