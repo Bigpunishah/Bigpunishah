@@ -1,0 +1,90 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+
+{
+
+//Declare number1 and number2 as type of integer
+
+int number1, number2;
+
+//Declare the variables multipleofThree,multipleofFive to store the
+
+//count of the multiples of 3 and 5 and initialize them to zero.
+
+int multipleofThree = 0, multipleofFive = 0;
+
+//Prompt the user to enter two integer .
+
+cout << "Enter two integers: " << endl;
+
+cin >> number1 >> number2;
+
+//Check if the second number entered is less than the first number or not.
+
+if (number2 < number1)
+
+{
+
+//If the second number entered is less than the first number
+
+//then swap both the numbers.
+
+int temp = number2;
+
+number2 = number1;
+
+number1 = temp;
+
+}
+
+//Run the loop from first number till the second number.
+
+for (int j = number1; j <= number2; j++)
+
+{
+
+//Check if the current value of j is a multiple of 3 or not.
+
+if (j % 3 == 0)
+
+{
+
+//If the current value of j is a multiple of 3 then increase the
+
+//value of the variable multipleofThree by 1.
+
+multipleofThree++;
+
+}
+
+//Check if the current value of j is a multiple of 5 or not.
+
+if (j % 5 == 0)
+
+{
+
+//If the current value of j is a multiple of 5 then
+
+//increase the value of the variable multipleofFive by 1
+
+multipleofFive++;
+
+}
+
+}
+
+//Display the number of multiples of 3 found between the two integers entered by the user.
+
+cout << "The number of multiples of 3 between the two integers : " << multipleofThree << endl;
+
+//Display the number of multiples of 5 found between the two integers entered by the user.
+
+cout << "The number of multiples of 5 between the two integers : " << multipleofFive << endl;
+
+return 0;
+// I used ethan bruces answer as reference. I had a lot of struggle 
+// during this exercise.
+}
