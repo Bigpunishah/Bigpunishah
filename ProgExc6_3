@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+bool isVowel(char ch);    //isVowel is characters at this moment
+
+
+int main() {
+
+  int num = 0;    // number of vowels
+  string let;   // user input words/ letters
+  int len;      // length of letters
+  cout << "Enter a sentence:" << endl;
+  getline(cin, let);
+
+ len = let.length();     // lenght is reserved for actual length
+  for(int i = 0; i < len; i++)      // if there is a detection it will ad 1
+{
+   if(isVowel(let[i])) // not sure how this function works but h
+  num ++;
+}
+  cout << num << " vowels in this sentence.";
+
+  return 0;
+}
+  bool isVowel(char ch)
+  {
+    char ch2 = tolower(ch); // ch2 is declared as the lowercase ch(characters)
+    return ch2 == 'a'|| ch2 == 'e'|| ch2 == 'i' || ch2 == 'o' || ch2 == 'u';
+  }
+
+
+
+
+
+
+
+
