@@ -1,0 +1,72 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+    double distance(int x, int y, int X, int Y){  // this function gets called
+        cout << fixed << setprecision(2);             // into action when in int main.
+        int sumx = (X - x);
+          double sumx1 = pow(sumx, 2);
+        int sumy = (Y - y);
+          double sumy1 = pow(sumy, 2);
+            double sumSq = sumx1 + sumy1;
+              double distance = sqrt(sumSq);       
+           cout << "Distance: " << distance << endl;
+           // distance is basically radius.
+          return distance;
+      };
+      double radius(int x, int y, int X, int Y){
+        int sumx = (X - x);
+          double sumx1 = pow(sumx, 2);
+        int sumy = (Y - y);
+          double sumy1 = pow(sumy, 2);
+            double sumSq = sumx1 + sumy1;
+              double radius = sqrt(sumSq) * 2;
+              cout << "Radius: " << radius << endl;
+            return radius;
+
+      };
+      double area(int x, int y, int X, int Y){
+        int sumx = (X - x);
+          double sumx1 = pow(sumx, 2);
+        int sumy = (Y - y);
+          double sumy1 = pow(sumy, 2);
+            double sumSq = sumx1 + sumy1;
+              double radius = sqrt(sumSq);
+                double pie = 3.1416;
+              double area = pow(radius, 2) * pie;
+            cout << "Area: " << area << endl;
+          return area;
+
+      };
+
+      double circumference(int x, int y, int X, int Y){
+        int sumx = (X - x);
+          double sumx1 = pow(sumx, 2);
+        int sumy = (Y - y);
+          double sumy1 = pow(sumy, 2);
+            double sumSq = sumx1 + sumy1;
+              double radius = sqrt(sumSq);
+                double pie = 3.1416;
+            double circumference = (2 * pie) * radius;
+          cout << "Circumference: " << circumference;
+        return circumference;
+
+      };
+
+int main()
+{
+    int x, y, X, Y;
+    \
+        cout << "Enter center point of circle: ";
+            cin >> x >> y;
+        cout << "Enter other point: ";
+            cin >> X >> Y;
+    distance(x, y, X, Y);
+    radius(x, y, X, Y); //calling to the second function (can call mult times)
+    area(x, y, X, Y);
+    circumference(x, y, X, Y);
+
+    return 0;
+}
