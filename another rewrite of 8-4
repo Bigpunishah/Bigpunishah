@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+int main(){
+  
+int Amt[8] {0}; //having the array set to 0 in the beginning
+int testscores;
+string data;
+
+  ifstream myfile("Ch8_Ex4Data.txt");
+  while(getline(myfile, data, ',')){ //create while loop to continue gathering all data from file. 
+
+    testscores = stoi(data); // transfers data into integers
+
+    if(testscores < 25)  //if test scores are lower than that number then...
+      Amt[0]++;          // add 1 to the Amt (array) number of testscores that are within that bracket.
+    else if(testscores < 50)
+      Amt[1]++;
+    else if(testscores < 75)
+      Amt[2]++;
+    else if(testscores < 100)
+      Amt[3]++;
+    else if(testscores < 125)
+      Amt[4]++;
+    else if(testscores < 150)
+      Amt[5]++;
+    else if(testscores < 175)
+      Amt[6]++;
+    else if(testscores <= 200)
+      Amt[7]++;
+  }
+  for(int i = 0; i <= 7; i++){  // simple for loop
+    int r1 = i * 25, r2 = (i + 1) * 25 - 1; // this loop makes 200 go to 199 below is way to fix.
+     if(i == 7) r2++; // Inlcuded 200 instead of being left at 199 from the loop of multiplication.
+    cout << endl << "Scores: " << r1 << " - " << r2 << " " << Amt[i] << endl;
+  }
+    
+
+  myfile.close();
+
+  //used an annonymous ref, but rewrote several times until was able to memorize & understand
+  //what was going on.
+
+  return 0;
+}
