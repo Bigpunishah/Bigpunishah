@@ -4,17 +4,12 @@
 using namespace std;
 
 int main()
-{
-    
-    int ranges[8] = {0};
-    
+{  
     // create a stream for the file
-    ifstream inFile("Ch8_Ex4Data.txt");
-    int testscores;
+    ifstream inFile("Ch8_Ex4Data.txt")
     string data = "";
     // extract data separated by ','
-    while(getline(inFile, data, ','))
-    {
+    while(getline(inFile, data, ',')){
         cout << data << endl;
 }
 return 0;
