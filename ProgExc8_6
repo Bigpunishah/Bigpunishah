@@ -1,0 +1,90 @@
+#include <iostream>
+#include <cstring>
+#include <fstream>
+
+using namespace std;
+
+const int NumQ = 20;
+const int NumS = 4;
+ifstream inFile;
+
+
+void readfile(ifstream & inFile);
+
+void CheckT(char StudentAnswer[][NumQ], string studentID[], char Key[]);
+
+char assignGrade(int score);
+
+
+
+int main()
+{
+  string studentID[NumS]; //put into array
+  char Key[NumQ]; //this is answer key
+  char StudentAnswer[NumS][NumQ]; //the students answers are the column & numb q is line of answer
+  
+  readfile(inFile);
+
+  //get the key first
+  inFile.getline(Key, '/n'); //using backslash n to end the line of getting the info you need.
+
+  // starting for loop for the arrays
+  for(int i = 0; i < NumS; i++){
+    inFile >> studentID[i]; 
+    inFile.get(); 
+    for(int x = 0; x < NumQ; x++)
+      StudentAnswer[i][x] = inFile.get();
+    
+  
+  }
+  
+  
+    CheckT( StudentAnswer, studentID, Key);
+    
+    return 0;
+}
+void CheckT(char StudentAnswer[][NumQ], string studentID[], char Key[]){
+  
+  for(int i = 0; i < NumS; i++){
+    cout << studentID[i] << " ";    //for the number of students go trough & display the student ID number
+    int score = 0;
+  
+    for(int x = 0; x < NumQ; x++){
+      cout << StudentAnswer[i][x];
+      if(StudentAnswer[i][x] == Key[x])
+        score += 2; //correct asnwer
+      else if(StudentAnswer[i][x] != Key[x] && StudentAnswer[i][x] != ' ')
+        score -=1; //incorrect answer but not blank
+      }
+    if(score < 0)
+      score = 0; //doesnt go negative
+    char grade = assignGrade(score);
+        cout << " " << grade << endl;
+    
+    
+    }
+  }
+
+char assignGrade(int score) {    
+    double percentScore = static_cast<double>(score);
+    cout << " " << percentScore;
+    if (percentScore >= 40)
+        return 'A';
+    else if (percentScore >= 34)
+        return 'B';
+    else if (percentScore >= 29)
+        return 'C';
+    else if (percentScore >= 24)
+        return 'D';
+    else
+        return 'F';
+}
+
+void readfile(ifstream & inFile){
+  
+inFile.open("Ch8_Ex6Data.txt");
+  if (!inFile){
+    cout << "Error reading file" << endl;
+    exit(1);
+  }
+}
