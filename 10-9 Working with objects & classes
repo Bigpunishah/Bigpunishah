@@ -1,0 +1,93 @@
+MAIN.CPP////////////////////////////////////////////
+#include <iostream>
+#include "clockType.h"
+#include <iomanip>
+using namespace std;
+
+int main() {
+  clockType myClock, yourClock;
+myClock.setTime(69,69,69);
+  cout << "myClock: ";
+  myClock.printTime();
+yourClock.setTime(0,0,0);
+  cout << "yourClock: ";
+  yourClock.printTime();
+  return 0;  
+}
+////////////////////////////////////////////////////
+clockTypeImp.cpp/////////////////////////////////
+#ifndef CLOCKTYPE_H_INCLUDED
+#define CLOCKTYPE_H_INCLUDED
+#include "clockType.h"
+#include <iomanip>
+#include <iostream>
+using namespace std;
+
+  void clockType::setTime(int h, int m, int s) {
+    setHour(h);
+    setMinute(m);
+    setSecond(s);
+    }
+
+ void clockType::setHour(int h){
+   if(h > 23 || h < 0)
+     hr = 0;
+   else hr = h;
+ }
+void clockType::setMinute(int m){
+  if(m > 59 || m < 0)
+    min = 0;
+  else min = m;
+}
+void clockType::setSecond(int s){
+  if(s > 59 || s < 0)
+    sec = 0;
+  else sec = s;
+      }
+int clockType::getHour(){
+  return hr;
+}
+int clockType::getMinute(){
+  return min;
+}
+int clockType::getSecond(){
+  return sec;
+}
+
+void clockType::printTime(){
+  cout << setfill ('0') << setw (2) << hr << ":" << setfill ('0') << setw (2) << min << ":" <<
+    setfill ('0') << setw (2)<< sec << endl;
+}
+
+#endif // CLOCKTYPE_H_INCLUDED
+///////////////////////////////////////////////////////
+clockType.h////////////////////////////////////////////
+class clockType
+
+{
+
+public:
+ void setTime(int h, int m, int s);
+void setHour(int h);
+void setMinute(int m);
+void setSecond(int s);
+
+ void getTime(int&, int&, int&) const;
+int getHour();
+int getMinute();
+int getSecond();
+
+ void printTime();
+
+ void incrementSeconds();
+ void incrementMinutes();
+ void incrementHours();
+ bool equalTime(const clockType&) const;
+
+private:
+
+ int hr;
+ int min;
+ int sec;
+
+};
